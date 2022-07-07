@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
+html {
+  font-size: 10px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.main-head {
+  font-size: 2.65rem;
+  font-weight: 700;
+}
+
+.filter-box {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-around;
+  width: 80vw;
+  padding: 1rem 2rem 0.2rem 2rem;
+  height: 10rem;
+  background-color: #fff;
+  box-shadow: 0px 1px 7px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 1rem;
+}
+.filter-box .input {
+  position: relative;
+  margin-top: 1.5rem;
+}
+.filter-box .input label {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.filter-box .input .filter-box-input {
+  background-color: #fff;
+  padding: 1rem;
+  padding-top: 2rem;
+  padding-right: 4rem;
+  padding-left: 0rem;
+  font-size: 1.4rem;
+  font-family: "Montserrat", sans-serif;
+  border: none;
+  border-bottom: 0.1rem solid #000;
+}
+.filter-box .input .filter-box-input:focus {
+  outline: none;
+}
+.filter-box .input .filter-box-input select option {
+  padding: 1rem;
+}
+.filter-box .input .location {
+  margin-top: 2rem;
+  margin-left: -2.5rem;
+}
+.filter-box .input.date .filter-box-input {
+  min-width: 20rem;
+  padding-right: 1rem;
+}
+.filter-box .filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  background-color: #6271FF;
+  padding: 1.4rem 4rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  border: none;
+  border-radius: 0.5rem;
+  color: #fff;
+}/*# sourceMappingURL=global.css.map */
