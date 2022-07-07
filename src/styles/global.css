@@ -4,13 +4,23 @@ html {
   font-family: "Montserrat", sans-serif;
 }
 
+li {
+  list-style: none;
+}
+
+ul {
+  padding: 0;
+}
+
 .main-head {
+  margin: 3rem;
   font-size: 2.65rem;
   font-weight: 700;
 }
 
 .filter-box {
   display: flex;
+  margin: auto;
   align-items: baseline;
   justify-content: space-around;
   width: 80vw;
@@ -58,6 +68,8 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
   background-color: #6271FF;
   padding: 1.4rem 4rem;
@@ -66,4 +78,67 @@ html {
   border: none;
   border-radius: 0.5rem;
   color: #fff;
+}
+
+.lyt_data_wrapper {
+  display: grid;
+  grid-template-columns: 300px 300px 300px;
+  grid-gap: 2rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+  margin-top: 4rem;
+}
+
+.card_wrapper .card {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 1.3rem;
+  max-width: 30rem;
+  position: relative;
+}
+.card_wrapper .card .card_banner img {
+  width: 100%;
+  height: 20rem;
+  border-top-left-radius: 1.3rem;
+  border-top-right-radius: 1.3rem;
+}
+.card_wrapper .card .card_info {
+  padding: 1rem 2rem;
+}
+.card_wrapper .card .card_info .card_rent {
+  color: #888FD2;
+  font-size: 2.2rem;
+  margin-top: 1rem;
+  margin-bottom: 0rem;
+}
+.card_wrapper .card .card_info .card_rent span {
+  color: #989AAF;
+  font-size: 1.1rem;
+  margin-left: 0.5rem;
+}
+.card_wrapper .card .card_info .card_rent::before {
+  content: "$";
+}
+.card_wrapper .card .card_info .card_name {
+  font-size: 2.3rem;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+.card_wrapper .card .card_info .card_address {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #A7A7A7;
+}
+.card_wrapper .card .card_info .card_propertyType {
+  border: 1px solid #A7A7A7;
+  border-radius: 12px;
+  padding: 0.2rem 1.7rem;
+  color: #a9a9a9;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.card_wrapper .card .card_info .card_date {
+  color: #A9A9A9;
 }/*# sourceMappingURL=global.css.map */

@@ -1,19 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useData } from '../DataContext';
+import Card from './Card';
 
 const DataList = () => {
 
-    const { filteredData } = useData();
+    const { filteredData, filterResult } = useData();
+
 
     return (
         <div>
-            <p>Data cards</p>
-            {
-                filteredData.map(value => {
-                    return <p>{value.propertyName}</p>
+            <ul className='lyt_data_wrapper'>
+                {filteredData.map(value => {
+                    return (
+                        <Card element={value} />
+                    )
                 })
-            }
-
+                }
+            </ul>
         </div>
     );
 }

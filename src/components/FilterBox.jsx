@@ -3,12 +3,12 @@ import { DataContext } from '../DataContext';
 
 const FilterBox = () => {
 
-    const { data, filterData } = React.useContext(DataContext);
+    const { data, filterData, setFilteredData } = React.useContext(DataContext);
 
     const [dataFilter, setDataFilter] = useState({
         city: null,
         moveInDate: null,
-        rent: null,
+        range: null,
         propertyType: null,
     });
 
@@ -48,8 +48,9 @@ const FilterBox = () => {
             </div>
             <div className="input">
                 <label className='input-label'>Price</label>
-                <select onChange={handlePropertyTypeChange} name="rent" className="filter-box-input">
-                    <option value="1000-5000" selected>
+                <select onChange={handlePropertyTypeChange} name="range" className="filter-box-input">
+                    <option selected>-- Select Range --</option>
+                    <option value="1000-5000">
                         $1,000 - $5,000
                     </option>
                     <option value="5000-10000">
@@ -69,8 +70,9 @@ const FilterBox = () => {
             <div className="input">
                 <label className='input-label'>Property Type</label>
                 <select onChange={handlePropertyTypeChange} name="propertyType" className="filter-box-input">
-                    <option value="House" selected>
-                        Houses
+                    <option selected>-- Select Property --</option>
+                    <option value="House">
+                        House
                     </option>
                     <option value="Land">
                         Land

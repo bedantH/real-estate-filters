@@ -10,7 +10,7 @@ export function DataContextProvider({ children }) {
             propertyName: "Palm Harbour",
             address: "2699 Green Valley, Highland Lake, FL",
             propertyType: "House",
-            moveInDate: "2022-07=20",
+            moveInDate: "2022-07-20",
             city: "Florida",
             rent: "2,700",
             range: "1000-5000"
@@ -108,6 +108,10 @@ export function DataContextProvider({ children }) {
     ];
 
     const [filteredData, setFilteredData] = useState(data);
+    const [filterResult, setFilterResult] = useState({
+        found: true,
+        msg: ""
+    })
     const [filterProperties, setFilterProperties] = useState({
         city: null,
         moveInDate: null,
@@ -117,15 +121,103 @@ export function DataContextProvider({ children }) {
 
 
     function filterData(input) {
-        var startRange = input.rent && input.rent.toString().split('-')[0];
-        var endRange = input.rent && input.rent.toString().split('-')[1];
+        console.table(input)
         var arr = [];
 
         data.forEach((ele) => {
-            if (ele.city.includes(input.city)) {
-                arr.push(ele);
+            if (input.city != null || "") {
+                if (input.city.toLowerCase().includes(ele.city.toLowerCase())) {
+                    if (input.moveInDate === ele.moveInDate) {
+                        arr.push(ele);
+                        setFilterResult(prev => {
+                            return {
+                                ...prev,
+                                found: true,
+                                msg: 'Location found!'
+                            }
+                        })
+                    }
+                    else if (input.range === ele.range) {
+                        arr.push(ele);
+                        setFilterResult(prev => {
+                            return {
+                                ...prev,
+                                found: true,
+                                msg: 'Location found!'
+                            }
+                        })
+                    }
+                    else if (input.propertyType === ele.propertyType) {
+                        arr.push(ele);
+                        setFilterResult(prev => {
+                            return {
+                                ...prev,
+                                found: true,
+                                msg: 'Location found!'
+                            }
+                        })
+                    } else if (input.moveInDate === null && input.range === null && input.propertyType === null) {
+                        arr.push(ele)
+                        setFilterResult(prev => {
+                            return {
+                                ...prev,
+                                found: true,
+                                msg: 'Location found!'
+                            }
+                        })
+                    }
+                } else {
+                    setFilterResult(prev => {
+                        return {
+                            ...prev,
+                            found: false,
+                            msg: 'No location found!'
+                        }
+                    })
+                }
+            } else {
+
+
+                if (input.moveInDate === ele.moveInDate) {
+                    arr.push(ele);
+                    setFilterResult(prev => {
+                        return {
+                            ...prev,
+                            found: true,
+                            msg: 'Location found!'
+                        }
+                    })
+                }
+                else if (input.range === ele.range) {
+                    arr.push(ele);
+                    setFilterResult(prev => {
+                        return {
+                            ...prev,
+                            found: true,
+                            msg: 'Location found!'
+                        }
+                    })
+                }
+                else if (input.propertyType == ele.propertyType) {
+                    console.log("Found")
+                    arr.push(ele);
+                    setFilterResult(prev => {
+                        return {
+                            ...prev,
+                            found: true,
+                            msg: 'Location found!'
+                        }
+                    })
+                } else {
+                    setFilterResult({
+                        found: false,
+                        msg: "No result found!"
+                    })
+                }
             }
         });
+
+        setFilteredData(arr)
 
         console.log(arr);
     }
@@ -133,7 +225,8 @@ export function DataContextProvider({ children }) {
     const value = {
         data,
         filterData,
-        filteredData
+        filteredData,
+        filterResult
     }
 
     return (
